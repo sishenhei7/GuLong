@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+  <navigator url="/pages/page/page?novel={{novel1}}" open-type="navigateTo">
+    <p class="time">{{novelMes1}}</p>
+  </navigator>
+  <navigator url="/pages/page/page?novel={{novel2}}" open-type="navigateTo">
+    <p class="time">{{novelMes2}}</p>
+  </navigator>
+  <navigator url="/pages/page/page?novel={{novel3}}" open-type="navigateTo">
+    <p class="time">{{novelMes3}}</p>
+  </navigator>
+</view>
