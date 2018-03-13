@@ -1,4 +1,7 @@
-<!--index.wxml-->
-<view class="container">
+<!--page.wxml-->
+<view class="btn-area">
+    <button size="mini" bindtap="tap">跳转上次观看位置</button>
+</view>
+<view>
   <text class="novel" bindtouchmove="touchMove">{{ novel }}</text>
 </view>

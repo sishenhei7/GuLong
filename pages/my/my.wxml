@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--my.wxml-->
 <view class="container">
-  <text class="user-motto">待开发</text>
+  <text class="user-motto">{{info}}</text>
 </view>

@@ -5,8 +5,17 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+
+    //获取设备信息，从而获取手机屏幕高度
+    var that = this;
+    wx.getSystemInfo({
+      success: function(res) {
+        console.log('屏幕高度为' + res.windowHeight)
+        that.globalData.windowHeight = res.windowHeight
+      }
+    })
   },
   globalData: {
-    userInfo: null
+    windowHeight: 0
   }
 })

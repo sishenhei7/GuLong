@@ -1,29 +1,37 @@
-
-
+//page.js
+var app =getApp()
 Page({
   data: {
-    novel: '等待中...'
+    id: 0,
+    novel: '等待中...',
+    bookMark: []
   },
 
   //滑动事件
   touchMove: function(event) {
-      wx.setStorageSync('scrollHeight', event.touches[0].pageY);
-      let scrollHeight = (wx.getStorageSync('scrollHeight') || 0);
-      console.log(event.touches[0].pageY);
+    let bookMark = (wx.getStorageSync('bookMark') || []);
+    bookMark[this.data.id] = event.touches[0].pageY;
+    wx.setStorageSync('bookMark', bookMark);
+  },
+
+  //点击事件,从上次开始看
+  tap: function(event) {
+    let bookMark = (wx.getStorageSync('bookMark') || []);
+    wx.pageScrollTo({
+      scrollTop: bookMark[this.data.id] - app.globalData.windowHeight/3
+    })
     },
 
   //页面加载
   onLoad: function (options) {
-    this.setData({
-      novel: options.novel,
-    });
+    var that = this;
+    let bookMark = (wx.getStorageSync('bookMark') || []);
 
-    //滚动页面到上次退出位置
-    let scrollHeight = (wx.getStorageSync('scrollHeight') || 0);
-    console.log(scrollHeight);
-    wx.pageScrollTo({
-      scrollTop: scrollHeight,
-      duration: 300
-    })
+    that.setData({
+      id: options.id,
+      novel: options.novel,
+      bookMark: bookMark
+    });
   }
+
 })
