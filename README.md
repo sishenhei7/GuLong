@@ -1,7 +1,12 @@
 # GuLong
+
 花了两晚上从零开始写的具有书签功能的古龙小说阅读器。
 
-## 微信查看：
+书签被储存在本地，所以关闭小程序后仍然可以使用。
+
+用到的微信API：```wx.getSystemInfo, wx.getStorageSync, wx.setStorageSync, wx.pageScrollTo```
+
+## 微信查看(正在审核中)：
 
 ![效果](./weixin.jpg)
 
